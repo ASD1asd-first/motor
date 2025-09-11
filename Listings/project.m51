@@ -1,0 +1,267 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        09/11/2025  15:57:40  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+D:\KEIL5\C51\BIN\BL51.EXE .\Objects\main.obj, .\Objects\motor.obj TO .\Objects\project PRINT (.\Listings\project.m51) RA
+>> MSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\main.obj (MAIN)
+  .\Objects\motor.obj (MOTOR)
+  D:\KEIL5\C51\LIB\C51S.LIB (?C_STARTUP)
+  D:\KEIL5\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\Objects\project (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0005H     UNIT         ?DT?MAIN
+            DATA    000DH     0002H     UNIT         _DATA_GROUP_
+            IDATA   000FH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0005H     UNIT         ?PR?A_FORWARD?MOTOR
+            CODE    0008H     0003H     UNIT         ?PR?MOTOR_INIT?MOTOR
+            CODE    000BH     0003H     ABSOLUTE     
+            CODE    000EH     008CH     UNIT         ?C_C51STARTUP
+            CODE    009AH     005EH     UNIT         ?PR?_MOTOR_FORWARDING?MOTOR
+            CODE    00F8H     005EH     UNIT         ?PR?_MOTOR_BACKING?MOTOR
+            CODE    0156H     0054H     UNIT         ?PR?MAIN?MAIN
+            CODE    01AAH     0029H     UNIT         ?PR?SETTING?MAIN
+            CODE    01D3H     0017H     UNIT         ?PR?TIMER0_INIT?MAIN
+            CODE    01EAH     000CH     UNIT         ?C_INITSEG
+            CODE    01F6H     0009H     UNIT         ?PR?STOP?MOTOR
+            CODE    01FFH     0005H     UNIT         ?PR?A_BACK?MOTOR
+            CODE    0204H     0005H     UNIT         ?PR?B_FORWARD?MOTOR
+            CODE    0209H     0005H     UNIT         ?PR?B_BACK?MOTOR
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\project (MAIN)
+
+
+SEGMENT                               DATA_GROUP 
+  +--> CALLED SEGMENT               START    LENGTH
+---------------------------------------------------
+?C_C51STARTUP                       -----    -----
+  +--> ?PR?MAIN?MAIN
+  +--> ?C_INITSEG
+
+?PR?MAIN?MAIN                       000DH    0002H
+  +--> ?PR?TIMER0_INIT?MAIN
+BL51 BANKED LINKER/LOCATER V6.22                                                      09/11/2025  15:57:40  PAGE 2
+
+
+  +--> ?PR?MOTOR_INIT?MOTOR
+  +--> ?PR?_MOTOR_FORWARDING?MOTOR
+  +--> ?PR?_MOTOR_BACKING?MOTOR
+
+?PR?MOTOR_INIT?MOTOR                -----    -----
+  +--> ?PR?B_BACK?MOTOR
+
+?PR?_MOTOR_FORWARDING?MOTOR         -----    -----
+  +--> ?PR?STOP?MOTOR
+  +--> ?PR?B_BACK?MOTOR
+  +--> ?PR?A_FORWARD?MOTOR
+  +--> ?PR?B_FORWARD?MOTOR
+  +--> ?PR?A_BACK?MOTOR
+
+?PR?_MOTOR_BACKING?MOTOR            -----    -----
+  +--> ?PR?STOP?MOTOR
+  +--> ?PR?B_BACK?MOTOR
+  +--> ?PR?A_FORWARD?MOTOR
+  +--> ?PR?B_FORWARD?MOTOR
+  +--> ?PR?A_BACK?MOTOR
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\project (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:01AAH         PUBLIC        setting
+  B:00A8H.7       PUBLIC        EA
+  D:0008H         PUBLIC        delay
+  B:00B0H.0       PUBLIC        P3_0
+  B:00B0H.1       PUBLIC        P3_1
+  B:00B0H.2       PUBLIC        P3_2
+  D:000AH         PUBLIC        delay_count
+  C:0156H         PUBLIC        main
+  C:01D3H         PUBLIC        Timer0_Init
+  D:0089H         PUBLIC        TMOD
+  B:00A8H.1       PUBLIC        ET0
+  B:0088H.5       PUBLIC        TF0
+  D:008CH         PUBLIC        TH0
+  D:000CH         PUBLIC        delay_on
+  D:008AH         PUBLIC        TL0
+  B:00B8H.1       PUBLIC        PT0
+  B:0088H.4       PUBLIC        TR0
+  -------         PROC          TIMER0_INIT
+  C:01D3H         LINE#         8
+  C:01D3H         LINE#         9
+  C:01D3H         LINE#         10
+  C:01D6H         LINE#         11
+  C:01D9H         LINE#         12
+  C:01DCH         LINE#         13
+  C:01DFH         LINE#         14
+  C:01E1H         LINE#         15
+  C:01E3H         LINE#         16
+BL51 BANKED LINKER/LOCATER V6.22                                                      09/11/2025  15:57:40  PAGE 3
+
+
+  C:01E5H         LINE#         17
+  C:01E7H         LINE#         18
+  C:01E9H         LINE#         19
+  -------         ENDPROC       TIMER0_INIT
+  -------         PROC          MAIN
+  -------         DO            
+  D:000DH         SYMBOL        choose
+  D:000EH         SYMBOL        choose_on
+  -------         ENDDO         
+  C:0156H         LINE#         22
+  C:0156H         LINE#         23
+  C:0159H         LINE#         24
+  C:015BH         LINE#         25
+  C:015EH         LINE#         26
+  C:0161H         LINE#         27
+  C:0161H         LINE#         28
+  C:0164H         LINE#         29
+  C:0167H         LINE#         30
+  C:016AH         LINE#         31
+  C:016FH         LINE#         32
+  C:0172H         LINE#         33
+  C:0175H         LINE#         34
+  C:017AH         LINE#         35
+  C:017DH         LINE#         36
+  C:0180H         LINE#         37
+  C:0180H         LINE#         38
+  C:0184H         LINE#         39
+  C:0187H         LINE#         40
+  C:018CH         LINE#         41
+  C:018FH         LINE#         42
+  C:0194H         LINE#         43
+  C:019BH         LINE#         44
+  C:019EH         LINE#         45
+  C:01A3H         LINE#         46
+  C:01A3H         LINE#         47
+  C:01A5H         LINE#         48
+  C:01A8H         LINE#         49
+  C:01A8H         LINE#         50
+  -------         ENDPROC       MAIN
+  -------         PROC          SETTING
+  C:01AAH         LINE#         53
+  C:01AEH         LINE#         54
+  C:01B1H         LINE#         55
+  C:01B4H         LINE#         56
+  C:01BCH         LINE#         57
+  C:01C5H         LINE#         58
+  C:01CBH         LINE#         59
+  C:01CEH         LINE#         60
+  C:01CEH         LINE#         61
+  -------         ENDPROC       SETTING
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        MOTOR
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:00A0H         PUBLIC        P2
+  B:00A0H.0       PUBLIC        a_for
+  C:0008H         PUBLIC        Motor_Init
+BL51 BANKED LINKER/LOCATER V6.22                                                      09/11/2025  15:57:40  PAGE 4
+
+
+  B:00A0H.2       PUBLIC        b_for
+  C:009AH         PUBLIC        _Motor_Forwarding
+  C:00F8H         PUBLIC        _Motor_Backing
+  C:0003H         SYMBOL        a_forward
+  C:0204H         SYMBOL        b_forward
+  C:01F6H         SYMBOL        stop
+  C:01FFH         SYMBOL        a_back
+  C:0209H         SYMBOL        b_back
+  B:00A0H.1       PUBLIC        a_bak
+  B:00A0H.3       PUBLIC        b_bak
+  -------         PROC          A_FORWARD
+  C:0003H         LINE#         8
+  C:0003H         LINE#         9
+  C:0005H         LINE#         10
+  C:0007H         LINE#         11
+  -------         ENDPROC       A_FORWARD
+  -------         PROC          A_BACK
+  C:01FFH         LINE#         13
+  C:01FFH         LINE#         14
+  C:0201H         LINE#         15
+  C:0203H         LINE#         16
+  -------         ENDPROC       A_BACK
+  -------         PROC          B_FORWARD
+  C:0204H         LINE#         18
+  C:0204H         LINE#         19
+  C:0206H         LINE#         20
+  C:0208H         LINE#         21
+  -------         ENDPROC       B_FORWARD
+  -------         PROC          B_BACK
+  C:0209H         LINE#         23
+  C:0209H         LINE#         24
+  C:020BH         LINE#         25
+  C:020DH         LINE#         26
+  -------         ENDPROC       B_BACK
+  -------         PROC          STOP
+  C:01F6H         LINE#         28
+  C:01F6H         LINE#         29
+  C:01F8H         LINE#         30
+  C:01FAH         LINE#         31
+  C:01FCH         LINE#         32
+  C:01FEH         LINE#         33
+  -------         ENDPROC       STOP
+  -------         PROC          _MOTOR_FORWARDING
+  D:0007H         SYMBOL        choose
+  C:009AH         LINE#         39
+  C:009AH         LINE#         40
+  C:00BFH         LINE#         41
+  C:00C7H         LINE#         42
+  C:00CDH         LINE#         43
+  C:00D5H         LINE#         44
+  C:00DBH         LINE#         45
+  C:00E3H         LINE#         46
+  C:00E9H         LINE#         47
+  C:00F1H         LINE#         48
+  C:00F7H         LINE#         49
+  C:00F7H         LINE#         50
+  -------         ENDPROC       _MOTOR_FORWARDING
+BL51 BANKED LINKER/LOCATER V6.22                                                      09/11/2025  15:57:40  PAGE 5
+
+
+  -------         PROC          _MOTOR_BACKING
+  D:0007H         SYMBOL        choose
+  C:00F8H         LINE#         57
+  C:00F8H         LINE#         58
+  C:011DH         LINE#         59
+  C:0125H         LINE#         60
+  C:012BH         LINE#         61
+  C:0133H         LINE#         62
+  C:0139H         LINE#         63
+  C:0141H         LINE#         64
+  C:0147H         LINE#         65
+  C:014FH         LINE#         66
+  C:0155H         LINE#         67
+  C:0155H         LINE#         68
+  -------         ENDPROC       _MOTOR_BACKING
+  -------         PROC          MOTOR_INIT
+  C:0008H         LINE#         73
+  C:0008H         LINE#         74
+  -------         ENDPROC       MOTOR_INIT
+  -------         ENDMOD        MOTOR
+
+Program Size: data=16.0 xdata=0 code=526
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
